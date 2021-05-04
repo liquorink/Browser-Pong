@@ -39,3 +39,4 @@ function colorRect(leftX, topY, width, height, drawColor) {
   canvasContext.fillStyle = drawColor;
   canvasContext.fillRect(leftX, topY, width, height);
 }
+console.log("I'm testing this commit")
