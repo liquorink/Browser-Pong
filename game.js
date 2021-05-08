@@ -1,7 +1,9 @@
 let canvas;
 let canvasContext;
 let ballX = 50;
+let ballY = 50;
 let ballSpeedX = 15;
+let ballSpeedY = 4;
 // After the website loads, the code will run.
 window.onload = function () {
   canvas = document.getElementById("gameCanvas");
@@ -16,20 +18,30 @@ window.onload = function () {
 // The speed of the ball.
 function moveEverything() {
   ballX = ballX + ballSpeedX;
-  if (ballX >= canvas.width) {
+  ballY = ballY + ballSpeedY;
+  if (ballX > canvas.width) {
     ballSpeedX = -ballSpeedX;
   }
 
-  if (ballX <= 0) {
+  if (ballX < 0) {
     ballSpeedX = -ballSpeedX;
+  }
+
+  if (ballY > canvas.height) {
+    ballSpeedY = -ballSpeedY;
+  }
+
+  if (ballY < 0) {
+    ballSpeedY = -ballSpeedY;
   }
 }
 // Draws all the shapes & colors, every 30 frames.
 function drawEverything() {
-  console.log(ballX);
+  // console.log(ballX);
+  console.log(ballY);
   colorRect(0, 0, canvas.width, canvas.height, "black");
   colorRect(0, 210, 10, 90, "white");
-  colorCircle(ballX, 150, 10, "white");
+  colorCircle(ballX, ballY, 10, "white");
 }
 function colorCircle(centerX, centerY, radius, drawColor) {
   canvasContext.fillStyle = drawColor;
