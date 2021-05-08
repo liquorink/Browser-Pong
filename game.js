@@ -29,12 +29,14 @@ function drawEverything() {
   console.log(ballX);
   colorRect(0, 0, canvas.width, canvas.height, "black");
   colorRect(0, 210, 10, 90, "white");
-  canvasContext.fillStyle = "red";
+  colorCircle(ballX, 150, 10, "white");
+}
+function colorCircle(centerX, centerY, radius, drawColor) {
+  canvasContext.fillStyle = drawColor;
   canvasContext.beginPath();
-  canvasContext.arc(ballX, 100, 100, 100, Math.PI * 2, true);
+  canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
   canvasContext.fill();
 }
-// code optimization.
 function colorRect(leftX, topY, width, height, drawColor) {
   canvasContext.fillStyle = drawColor;
   canvasContext.fillRect(leftX, topY, width, height);
