@@ -4,6 +4,19 @@ let ballX = 50;
 let ballY = 50;
 let ballSpeedX = 15;
 let ballSpeedY = 4;
+let player1Y = 250;
+const PLAYER1_HEIGHT = 100;
+
+function calculateMousePos(evt) {
+  let rect = canvas.getBoundingClientRect();
+  let root = document.documentElement;
+  let mouseX = evt.clientX - rect.left - root.scrollLeft;
+  let mouseY = evt.clientY - rect.top - root.scrollTop;
+  return {
+    x: mouseX,
+    y: mouseY,
+  };
+}
 // After the website loads, the code will run.
 window.onload = function () {
   canvas = document.getElementById("gameCanvas");
