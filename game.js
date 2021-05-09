@@ -26,7 +26,12 @@ window.onload = function () {
   setInterval(function () {
     moveEverything();
     drawEverything();
+    // calculateMousePos();
   }, 1000 / framesPerSecond);
+  canvas.addEventListener("mousemove", function (evt) {
+    let mousePos = calculateMousePos(evt);
+    player1Y = mousePos.y;
+  });
 };
 // The speed of the ball.
 function moveEverything() {
