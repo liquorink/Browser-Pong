@@ -5,7 +5,9 @@ let ballY = 50;
 let ballSpeedX = 15;
 let ballSpeedY = 4;
 let player1Y = 250;
-const PLAYER1_HEIGHT = 100;
+let player2Y = 250;
+const PLAYER_HEIGHT = 100;
+
 
 function calculateMousePos(evt) {
   let rect = canvas.getBoundingClientRect();
@@ -29,7 +31,7 @@ window.onload = function () {
   }, 1000 / framesPerSecond);
   canvas.addEventListener("mousemove", function (evt) {
     let mousePos = calculateMousePos(evt);
-    player1Y = mousePos.y - PLAYER1_HEIGHT / 2;
+    player1Y = mousePos.y - PLAYER_HEIGHT / 2;
   });
 };
 function ballReset() {
@@ -46,7 +48,7 @@ function moveEverything() {
   }
 
   if (ballX < 0) {
-    if (ballY > player1Y && ballY < player1Y + PLAYER1_HEIGHT) {
+    if (ballY > player1Y && ballY < player1Y + PLAYER_HEIGHT) {
       ballSpeedX = -ballSpeedX;
     } else {
       ballReset();
@@ -66,8 +68,10 @@ function drawEverything() {
   // console.log(ballX);
   console.log(ballY);
   colorRect(0, 0, canvas.width, canvas.height, "black");
-  //left player
-  colorRect(0, player1Y, 10, PLAYER1_HEIGHT, "white");
+  // Left player
+  colorRect(0, player1Y, 10, PLAYER_HEIGHT, "white");
+  // Right player
+  colorRect(790, player2Y, 10, PLAYER_HEIGHT, "white");
   colorCircle(ballX, ballY, 10, "white");
 }
 function colorCircle(centerX, centerY, radius, drawColor) {
