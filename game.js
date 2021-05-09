@@ -46,7 +46,11 @@ function moveEverything() {
   }
 
   if (ballX < 0) {
-    ballReset();
+    if (ballY > player1Y && ballY < player1Y + PLAYER1_HEIGHT) {
+      ballSpeedX = -ballSpeedX;
+    } else {
+      ballReset();
+    }
   }
 
   if (ballY > canvas.height) {
@@ -63,7 +67,7 @@ function drawEverything() {
   console.log(ballY);
   colorRect(0, 0, canvas.width, canvas.height, "black");
   //left player
-  colorRect(5, player1Y, 10, PLAYER1_HEIGHT, "white");
+  colorRect(0, player1Y, 10, PLAYER1_HEIGHT, "white");
   colorCircle(ballX, ballY, 10, "white");
 }
 function colorCircle(centerX, centerY, radius, drawColor) {
