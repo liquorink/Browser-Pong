@@ -29,9 +29,14 @@ window.onload = function () {
   }, 1000 / framesPerSecond);
   canvas.addEventListener("mousemove", function (evt) {
     let mousePos = calculateMousePos(evt);
-    player1Y = mousePos.y-(PLAYER1_HEIGHT/2);
+    player1Y = mousePos.y - PLAYER1_HEIGHT / 2;
   });
 };
+function ballReset() {
+  ballSpeedX = -ballSpeedX;
+  ballX = canvas.width / 2;
+  ballY = canvas.height / 2;
+}
 // The speed of the ball.
 function moveEverything() {
   ballX = ballX + ballSpeedX;
@@ -41,7 +46,7 @@ function moveEverything() {
   }
 
   if (ballX < 0) {
-    ballSpeedX = -ballSpeedX;
+    ballReset();
   }
 
   if (ballY > canvas.height) {
