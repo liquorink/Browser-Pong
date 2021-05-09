@@ -26,11 +26,10 @@ window.onload = function () {
   setInterval(function () {
     moveEverything();
     drawEverything();
-    // calculateMousePos();
   }, 1000 / framesPerSecond);
   canvas.addEventListener("mousemove", function (evt) {
     let mousePos = calculateMousePos(evt);
-    player1Y = mousePos.y;
+    player1Y = mousePos.y-(PLAYER1_HEIGHT/2);
   });
 };
 // The speed of the ball.
@@ -58,7 +57,8 @@ function drawEverything() {
   // console.log(ballX);
   console.log(ballY);
   colorRect(0, 0, canvas.width, canvas.height, "black");
-  colorRect(0, 210, 10, 90, "white");
+  //left player
+  colorRect(5, player1Y, 10, PLAYER1_HEIGHT, "white");
   colorCircle(ballX, ballY, 10, "white");
 }
 function colorCircle(centerX, centerY, radius, drawColor) {
