@@ -8,7 +8,6 @@ let player1Y = 250;
 let player2Y = 250;
 const PLAYER_HEIGHT = 100;
 
-
 function calculateMousePos(evt) {
   let rect = canvas.getBoundingClientRect();
   let root = document.documentElement;
@@ -36,6 +35,10 @@ window.onload = function () {
 };
 function ballReset() {
   ballSpeedX = -ballSpeedX;
+  ballX = canvas.width / 2;
+  ballY = canvas.height / 2;
+}
+function ballReset() {
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
 }
